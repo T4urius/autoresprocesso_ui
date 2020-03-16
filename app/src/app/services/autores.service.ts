@@ -7,17 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class AutoresService {
 
-    constructor(private _http: HttpClient) { }
+    apiUrl: "https://localhost:44359/api/v1/autores";
 
-    obterAutores() {
-        // return this._http.get<any[]>();
+    constructor(private _http: HttpClient) {
     }
 
-    inserirAutores(){
-        // return this._http.post<any>();
+    obterAutores(): Observable<any[]> {
+        return this._http.get<any[]>(this.apiUrl);
+    }
+
+    inserirAutores(idAutor: number, nomeAutor: string): Observable<any> {
+        return this._http.post<any>(this.apiUrl + '/inserirAutor', { body: idAutor, nomeAutor });
     }
 
     removerAutores() {
-        
+        return this._http.delete(this.apiUrl);
     }
 }

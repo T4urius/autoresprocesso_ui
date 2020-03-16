@@ -12,8 +12,8 @@
                 <thead>
                     <th>Nome autor</th>
                 </thead>
-                <tbody>
-                    <tr>nome</tr>
+                <tbody *ngFor="let autor of autores">
+                    <tr>{{autores.nome}}</tr>
                 </tbody>
             </table>
         </mat-card-content>
